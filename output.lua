@@ -153,7 +153,9 @@ t3:Button("Arcade",function()
 end)
 
 t3:Button("Stand Pilot funy",function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart:Destroy()
+	game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
+	local okand = Instance.new("Motor6D", game.Players.LocalPlayer.Character.LowerTorso)
+	okand.Name = "Root"
 end)
 
 local t4 = s:Tab("Customize [WIP]")
