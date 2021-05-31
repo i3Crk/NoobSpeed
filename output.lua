@@ -1,7 +1,7 @@
 --Vep library
 local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 
-local s = VLib:Window("suskeetch was here cry about it", "v69", "SK")
+local s = VLib:Window("Noob Speed", "v1.2", "NS")
 
 local player = game.Players.LocalPlayer
 --//Variables
@@ -9,7 +9,7 @@ local speed = false
 local jump = false
 local sell = false
 
---local t1 = s:Tab("Main")
+local t1 = s:Tab("Main")
 
 t1:Label("Script Hubs")
 
@@ -33,7 +33,7 @@ t1:Button("Shindo Life [AUTOFARM]",function()
 	loadstring(game:HttpGet("https://bruh.keshsenpai.com/.lua"))()
 end)
 
---local t2 = s:Tab("Player")
+local t2 = s:Tab("Player")
 
 t2:Toggle("Speed",function(t)
 	if speed == false then
@@ -93,7 +93,7 @@ t2:Textbox("Make Invisible [Client]", true,function(t)
 	end
 end)
 
---local t3 = s:Tab("Your Bizarre Adventure")
+local t3 = s:Tab("Your Bizarre Adventure")
 
 t3:Button("Item ESP",function()
 	if not pcall(function() return syn.protect_gui end) then
@@ -161,7 +161,7 @@ t3:Button("Stand Pilot funy",function()
 	--okand.Name = "Root"
 end)
 
---local t4 = s:Tab("Customize [WIP]")
+local t4 = s:Tab("Customize [WIP]")
 
 t4:Label("Custom Theme")
 
