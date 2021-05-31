@@ -153,12 +153,11 @@ t3:Button("Arcade",function()
 end)
 
 t3:Button("Stand Pilot funy",function()
-	game.Players.LocalPlayer.Character:FindFirstChild("StandMorph").AnimationController:Destroy()
-	game.Players.LocalPlayer.Character.LowerTorso.Root.Part0 = nil
-	game.Players.LocalPlayer.Character.LowerTorso.Root.Part1 = nil
-	--game.Players.LocalPlayer.Character.LowerTorso.Root:Destroy()
-	--local okand = Instance.new("Motor6D", game.Players.LocalPlayer.Character.LowerTorso)
-	--okand.Name = "Root"
+	local root = game.Players.LocalPlayer.Character.LowerTorso.Root
+	local ac = game.Players.LocalPlayer.Character:FindFirstChild("StandMorph").AnimationController
+	root.Part0 = nil
+	root.Part1 = nil
+	ac:Destroy()
 end)
 
 local t4 = s:Tab("Customize [WIP]")
