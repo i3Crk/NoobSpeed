@@ -44,7 +44,7 @@ t2:Toggle("Speed",function(t)
 	end
 end)
 
-t2:Slider("Speed Power",0,250,16,function(t)
+t2:Slider("Speed Power",16,250,16,function(t)
 	if speed == true then
 		while speed == true do
 			player.Character.Humanoid.WalkSpeed = t
@@ -62,7 +62,7 @@ t2:Toggle("Jump",function(t)
 	end
 end)
 
-t2:Slider("Jump Power",0,250,50,function(t)
+t2:Slider("Jump Power",50,250,50,function(t)
 	if jump == true then
 		while jump == true do
 			player.Character.Humanoid.JumpPower = t
