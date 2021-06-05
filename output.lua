@@ -1,7 +1,7 @@
 --Vep library
 local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
 
-local s = VLib:Window("Noob Speed", "v1.2", "NS")
+local s = VLib:Window("Noob Speed", "v1.3", "NS")
 
 local player = game.Players.LocalPlayer
 --//Variables
@@ -152,12 +152,95 @@ t3:Button("Arcade",function()
 	game:GetService("Players").LocalPlayer.Character.RemoteEvent:FireServer(unpack(args))
 end)
 
-t3:Button("Stand Pilot funy",function()
+t3:Button("Stand Pilot [WIP]",function()
 	local root = game.Players.LocalPlayer.Character.LowerTorso.Root
 	local ac = game.Players.LocalPlayer.Character:FindFirstChild("StandMorph").AnimationController
 	root.Part0 = nil
 	root.Part1 = nil
 	ac:Destroy()
+end)
+
+t3:Toggle("Auto Stand", function(t)
+	if t then
+		while t do
+			--Check if no stand, if no stand set skill tree
+			if not game.Players.LocalPlayer.Character:FindFirstChild("SummonedStand") then
+				local args = {
+					[1] = "LearnSkill",
+					[2] = {
+						["Skill"] = "Vitality I",
+						["SkillTreeType"] = "Character"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteFunction:InvokeServer(unpack(args))
+				wait()
+				local args2 = {
+					[1] = "LearnSkill",
+					[2] = {
+						["Skill"] = "Vitality II",
+						["SkillTreeType"] = "Character"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteFunction:InvokeServer(unpack(args2))
+				wait()
+				local args3 = {
+					[1] = "LearnSkill",
+					[2] = {
+						["Skill"] = "Vitality III",
+						["SkillTreeType"] = "Character"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteFunction:InvokeServer(unpack(args3))
+				wait()
+				local args4 = {
+					[1] = "LearnSkill",
+					[2] = {
+						["Skill"] = "Worthiness I",
+						["SkillTreeType"] = "Character"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteFunction:InvokeServer(unpack(args4))
+				wait()
+				local args5 = {
+					[1] = "LearnSkill",
+					[2] = {
+						["Skill"] = "Worthiness II",
+						["SkillTreeType"] = "Character"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteFunction:InvokeServer(unpack(args5))
+				wait()
+				--uses arrow
+				if game.Players.LocalPlayer.Backpack:FindFirstChild("Mysterious Arrow") then
+					game.Players.LocalPlayer.Backpack:FindFirstChild("Mysterious Arrow").Parent = game.Players.LocalPlayer.Character
+				end
+				local args = {
+					[1] = "EndDialogue",
+					[2] = {
+						["NPC"] = "Mysterious Arrow",
+						["Dialogue"] = "Dialogue1"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteEvent:FireServer(unpack(args))
+				game.Players.LocalPlayer.Character:WaitForChild("SummonedStand")
+				wait(2)
+			elseif game.Players.LocalPlayer.Character:FindFirstChild("SummonedStand") then
+				if game.Players.LocalPlayer.Backpack:FindFirstChild("Rokakaka") then
+					game.Players.LocalPlayer.Backpack:FindFirstChild("Rokakaka").Parent = game.Players.LocalPlayer.Character
+				end
+				local args = {
+					[1] = "EndDialogue",
+					[2] = {
+						["NPC"] = "Rokakaka",
+						["Dialogue"] = "Dialogue1"
+					}
+				}
+				game:GetService("Players").LocalPlayer.Character.RemoteEvent:FireServer(unpack(args))
+			end
+		end
+	else
+		print("auto stand off")
+	end
 end)
 
 local t4 = s:Tab("Customize [WIP]")
